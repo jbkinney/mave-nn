@@ -142,8 +142,8 @@ class Model:
                  ge_heteroskedasticity_order=0,
                  normalize_phi=True,
                  mpa_hidden_nodes=50,
-                 theta_regularization=0.001,
-                 eta_regularization=0.1,
+                 theta_regularization=0.01,
+                 eta_regularization=0.0005,
                  ohe_batch_size=50000,
                  custom_gpmap=None,
                  initial_weights=None):

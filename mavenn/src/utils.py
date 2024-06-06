@@ -43,6 +43,7 @@ def load(filename, verbose=True):
             MAVE-NN model object.
         """
         # Load model
+        print(filename)
         filename_pickle = filename + '.pickle'
         with open(filename_pickle, 'rb') as f:
             config_dict = pickle.load(f)

@@ -243,7 +243,7 @@ def test_load():
     mavenn_dir = mavenn.__path__[0]
     model_dir = f'{mavenn_dir}/examples/models/'
 
-    good_MPA_model_1 = model_dir + 'sortseq_mpa_additive'
+    good_MPA_model_1 = model_dir + 'sortseq_full-wt_mpa_additive'
     good_GE_model_1 = model_dir + 'gb1_ge_additive'
 
     # Good GE model file
@@ -372,9 +372,9 @@ def test_x_to_phi_or_yhat():
     mavenn_dir = mavenn.__path__[0]
     model_dir = f'{mavenn_dir}/examples/models/'
 
-    mpa_model = load(model_dir + 'sortseq_mpa_additive')
-    mpa_seq = 'GGCTTTACACTTTATGCTTCCGGCTCGTATGTTGTGTGG'
-    mpa_seq_gap = 'GGCTTTACAC-TTATGCTTCCGGCTCGTATGTTGTGTGG'
+    mpa_model = load(model_dir + 'sortseq_full-wt_mpa_additive')
+    mpa_seq = 'AAAAAAAGTGAGTTAGCCAACTAATTAGGCACCGTACGCTTTATAGTTTTTGCTTCCGGCTCGTATGTTGTGTGG'
+    mpa_seq_gap = 'AAAAAAAGT-AGTTAGCCAACTAATTAGGCACCGTACGCTTTATAGTTTTTGCTTCCGGCTCGTATGTTGTGTGG'
     ge_model = load(model_dir + 'gb1_ge_additive')
     ge_seq = 'QYKLILNGKTLKGETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTE'
     ge_seq_gap = 'QYKLILNGKTLK-ETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTE'

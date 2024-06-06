@@ -1058,7 +1058,7 @@ class DiscreteAgnosticMP(MeasurementProcess):
 
         self.c_k = self.add_weight(name='c_k',
                                    dtype=tf.float32,
-                                   shape=(self.K,),
+                                   shape=(self.Y, self.K,),
                                    initializer=Constant(1.),
                                    trainable=True,
                                    regularizer=self.regularizer)

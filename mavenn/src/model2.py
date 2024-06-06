@@ -113,8 +113,8 @@ class Model:
         self.additional_input_nodes = additional_input_nodes
 
         self.L = self.gpmap.L
-        self.C = self.gpmap.C
         self.alphabet = self.gpmap.alphabet
+        self.C = len(self.alphabet)
 
         self.mp_list = mp_list
 

@@ -15,6 +15,7 @@ from tensorflow.keras.layers import Layer, Dense
 
 # MAVE-NN imports
 from mavenn.src.error_handling import check, handle_errors
+from mavenn.src.validate import validate_alphabet
 from mavenn.src.utils import x_to_stats, validate_seqs, _x_to_mat
 from mavenn.src.reshape import _shape_for_output, \
     _get_shape_and_return_1d_array
@@ -31,7 +32,7 @@ class GPMapLayer(Layer):
     @handle_errors
     def __init__(self,
                  L,
-                 alphabet,
+		 alphabet,
                  theta_regularization=1e-3):
         """Construct layer instance."""
 
@@ -44,10 +45,8 @@ class GPMapLayer(Layer):
         # Set sequence length
         self.L = L
 
-        # Set alphabet
-        self.alphabet = alphabet
-
-        # Set alphabet length
+        # Validate and set alphabet
+        self.alphabet = validate_alphabet(alphabet)
         self.C = len(self.alphabet)
 
         # Set regularization contribution

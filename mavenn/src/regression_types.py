@@ -118,7 +118,7 @@ class GlobalEpistasisModel:
 
         # check that ge_nonlinearity_monotonic is a boolean.
         check(isinstance(self.ge_nonlinearity_monotonic,
-                         (bool, np.bool, np.bool_)),
+                         (bool, np.bool_)),
               'ge_nonlinearity_monotonic must be a boolean')
 
         # check that ge_heteroskedasticity_order is an number
@@ -237,18 +237,18 @@ class GlobalEpistasisModel:
         if self.gpmap_type == 'additive':
             self.x_to_phi_layer = AdditiveGPMapLayer(
                 L=self.L,
-                C=self.C,
+		alphabet=self.alphabet,
                 theta_regularization=self.theta_regularization)
         elif self.gpmap_type in ['pairwise', 'neighbor']:
             self.x_to_phi_layer = PairwiseGPMapLayer(
                 L=self.L,
-                C=self.C,
+                alphabet=self.alphabet,
                 theta_regularization=self.theta_regularization,
                 mask_type=self.gpmap_type)
         elif self.gpmap_type == 'blackbox':
             self.x_to_phi_layer = MultilayerPerceptronGPMap(
                 L=self.L,
-                C=self.C,
+                alphabet=self.alphabet,
                 theta_regularization=self.theta_regularization,
                 **self.gpmap_kwargs)
         elif self.gpmap_type == 'custom':
@@ -492,18 +492,18 @@ class MeasurementProcessAgnosticModel:
         if self.gpmap_type == 'additive':
             self.x_to_phi_layer = AdditiveGPMapLayer(
                 L=self.L,
-                C=self.C,
+                alphabet=self.alphabet,
                 theta_regularization=self.theta_regularization)
         elif self.gpmap_type in ['pairwise', 'neighbor']:
             self.x_to_phi_layer = PairwiseGPMapLayer(
                 L=self.L,
-                C=self.C,
+                alphabet=self.alphabet,
                 theta_regularization=self.theta_regularization,
                 mask_type=self.gpmap_type)
         elif self.gpmap_type == 'blackbox':
             self.x_to_phi_layer = MultilayerPerceptronGPMap(
                 L=self.L,
-                C=self.C,
+                alphabet=self.alphabet,
                 theta_regularization=self.theta_regularization,
                 **self.gpmap_kwargs)
         elif self.gpmap_type == 'custom':
